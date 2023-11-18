@@ -24,7 +24,7 @@ function NavBar() {
         </ul>
         <div>
         <div className='cart'>
-      <a href=''>🛒</a>
+      <a href='/Cart'>🛒</a>
       
     </div>
     
