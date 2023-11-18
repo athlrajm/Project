@@ -10,16 +10,16 @@ function NavBar() {
         </a>
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="/" className="nav-link">WOMEN</a>
+            <a href="/Women" className="nav-link">WOMEN</a>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">MEN</a>
+            <a href="/Men" className="nav-link">MEN</a>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">BRIDAL</a>
+            <a href="/Women" className="nav-link">BRIDAL</a>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">KIDS</a>
+            <a href="/Kids" className="nav-link">KIDS</a>
           </li>
         </ul>
         <div>
