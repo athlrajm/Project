@@ -1,6 +1,8 @@
 import React from 'react'
 import './NavBar.css'
+import { useNavigate } from 'react-router-dom'
 function NavBar() {
+  const Navigate=useNavigate()
   return (
     <div>
          <nav className="navbar">
@@ -34,8 +36,8 @@ function NavBar() {
       
     </div>
         <div className='bt'>
-        <button type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">LOG IN</button>
-        &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">SIGN UP</button>      </div>
+        <button  type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">LOG IN</button>
+        &nbsp;&nbsp;&nbsp;<button onClick={()=>Navigate('/Signup')} type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">SIGN UP</button>      </div>
         </div>
     </nav>
 
