@@ -39,7 +39,7 @@ function App() {
         <Route path='/Kids' element={<><NavBar/><Kids/><Foot/></>}/>
         <Route path='/Cart' element={<><NavBar/><Cart/><Foot/></>}/>
         <Route path='/Signup' element={<><NavBar/><Signup/><Foot/></>}/>
-        <Route path='/Login' element={<><NavBar/><Login/><Foot/></>}/>
+        
         
       </Routes>
       </BrowserRouter> 
