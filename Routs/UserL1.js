@@ -3,7 +3,7 @@ const Cryptojs=require('crypto-js')
 
 const User1=require('../Models/User1')
 const {verifyToken,verifyTokenAndAuthorization}=require('../VerifyToken')
-router.put("/:id",verifyTokenAndAuthorization,async(req,res)=>{
+router.put("/:id",verifyToken,verifyTokenAndAuthorization,async(req,res)=>{
     console.log(req.params.id)
     console.log(req.body)
     if(req.body.Password){
