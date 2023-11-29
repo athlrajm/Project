@@ -1,8 +1,14 @@
 import React from 'react'
 import './NavBar.css'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { logOut } from '../Redux/CreateSlice'
 function NavBar() {
   const Navigate=useNavigate()
+  const Dispatch=useDispatch()
+  function logOuted(){
+    Dispatch(logOut())
+  }
   return (
     <div>
          <nav className="navbar">
@@ -36,13 +42,19 @@ function NavBar() {
       
     </div>
         <div className='bt'>
-        <button  type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">LOG IN</button>
-        &nbsp;&nbsp;&nbsp;<button onClick={()=>Navigate('/Signup')} type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">SIGN UP</button>      </div>
+        <button onClick={()=>Navigate('/login')} type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Log In</button>&nbsp;&nbsp;&nbsp;
+        <button onClick={()=>Navigate('/Signup')} type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">SIGN UP</button>  
+        &nbsp;&nbsp;&nbsp;<button onClick={logOuted} type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Log Out </button>
+            
         </div>
+        </div>
+        
     </nav>
 
     </div>
   )
 }
+
+
 
 export default NavBar

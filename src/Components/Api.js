@@ -16,7 +16,7 @@ export const Api2=async (dispatch,res1)=>{
 
     console.log("****login date",res1)
     try{
-        const res=await axios.post("http://localhost:5000/api/signup/login",res1)
+        const res=await axios.post("http://localhost:5000/api/signup/Login",res1)
         console.log("***login dat",res)
         dispatch(loginData(res))
     }

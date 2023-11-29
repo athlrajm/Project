@@ -1,7 +1,7 @@
 import Caro from "./Components/Caro";
 import NavBar from "./Components/NavBar";
 import Foot from "./Components/Foot"
-import {BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter} from 'react-router-dom'
+// import {BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter} from 'react-router-dom'
 
 import Card from "./Components/Card.jsx"
 
@@ -15,39 +15,53 @@ import Signup from "./Components/Signup.jsx";
 import Login from "./Components/Login.jsx";
 import Profile from "./Components/Profile.jsx";
 import { useSelector } from "react-redux";
+import {createBrowserRouter,RouterProvider}from 'react-router-dom'
 
 function App() {
   const userx=useSelector(state=>state.userdata.loginInfo);
+  // console.log("userx",userx);
+  
   const router=createBrowserRouter([
     {
       path:'/',
 
-      element:userx[0]&&userx[0].data.accesstoken?<Profile/>:<Login/>
+      element:<><NavBar/><Caro/><Card/><Foot/></>
+    },
+    {
+      path:'/Women',
+
+      element:<><NavBar/><Women/><Foot/></>
+    },
+    {
+      path:'/Men',
+
+      element:<><NavBar/><Men/><Foot/></>
+    },
+    {
+      path:'/Kids',
+
+      element:<><NavBar/><Kids/><Foot/></>
+    },
+    {
+      path:'/Cart',
+
+      element:<><NavBar/><Cart/><Foot/></>
+    },
+    
+    {
+      path:'/login',
+
+      element:userx[0]&&userx[0].data.accesstoken?<><NavBar/><Profile/><Foot/></>:<><NavBar/><Login/><Foot/></>
     },
     {
       path:'signup',
-      element:<Login/>
+      element:<><NavBar/><Signup/><Foot/></>
     }
   ])
   return (
-    <div>
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<><NavBar/><Caro/><Card/><Foot/></>}/>
-        <Route path='/Women' element={<><NavBar/><Women/><Foot/></>}/>
-        <Route path='/Men' element={<><NavBar/><Men/><Foot/></>}/>
-        <Route path='/Kids' element={<><NavBar/><Kids/><Foot/></>}/>
-        <Route path='/Cart' element={<><NavBar/><Cart/><Foot/></>}/>
-        <Route path='/Signup' element={<><NavBar/><Signup/><Foot/></>}/>
-        
-        
-      </Routes>
-      </BrowserRouter> 
-      <RouterProvider router={router}>
+   <RouterProvider router={router}>
 
-      </RouterProvider>
-      
-    </div>
+   </RouterProvider>
   );
 }
 

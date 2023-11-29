@@ -4,7 +4,7 @@ const Addtocart=({addToCartItem}) =>{
     let addToCartResult=addToCartItem.map((item)=>{
         return(
             <div>
-                <div className='add-to-cart-item'>
+                <div className='add-to-cart-item' >
             <img src={item.image} alt='' ></img>
                 <h6>{item.title}</h6>
                 

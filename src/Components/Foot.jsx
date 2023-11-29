@@ -88,9 +88,9 @@ const Foot = () => {
         
       </ul>
       </div> */}
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+      <div className='f-6' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         © 2023 Copyright:
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
+        <a className='f-7' href='https://mdbootstrap.com/'>
           KALKIFASHION.COM
         </a>
       </div>

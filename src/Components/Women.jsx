@@ -4,17 +4,24 @@ import Button from '@mui/material/Button';
 import { Card } from 'react-bootstrap';
 import Addtocart from './Addtocart';
 import './Men.css'
+import { useDispatch } from 'react-redux';
+import { addCart } from '../Redux/CartSlice';
 function Women() {
   let [addToCartItem, setaddToCartItem]=useState([])
   
-  function addToCartHandler(addToCartTitle,addToCartImg){
+  const dispatch=useDispatch();
+  function addToCartHandler(addToCartTitle,addToCartImg,addToCartPrice){
     setaddToCartItem([
       ...addToCartItem,
       {
         "image":addToCartImg,
-        "title":addToCartTitle
+        "title":addToCartTitle,
+        "price":addToCartPrice
       }
+    
     ]);
+    dispatch(addCart({addToCartTitle,addToCartImg,addToCartPrice}))
+    
     
     
   }
@@ -34,8 +41,8 @@ function Women() {
           {data.description}
         </Card.Text>
         <Card.Text>Rs.{data.price} ( 20%off )</Card.Text>
-        <Button onClick={()=>addToCartHandler(data.title,data.image)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Add to cart</Button>&nbsp;&nbsp;&nbsp;
-        <Button class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Buy Now</Button>
+        <Button onClick={()=>addToCartHandler(data.title,data.image,data.price)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Add to cart</Button>&nbsp;&nbsp;&nbsp;
+        <Button onClick={()=>addToCartHandler(data.title,data.image,data.price)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Buy Now</Button>
       </Card.Body>
     </Card>
             )

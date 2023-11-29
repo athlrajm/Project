@@ -1,6 +1,6 @@
 import { configureStore,combineReducers } from "@reduxjs/toolkit";
 import CreateSlice from "./CreateSlice";
-
+import CartSlice from "./CartSlice";
 import {
     persistStore,
     persistReducer,
@@ -17,7 +17,7 @@ import {
     version: 1,
     storage,
   }
-  const rootreducer=combineReducers({userdata:CreateSlice})
+  const rootreducer=combineReducers({userdata:CreateSlice,cart:CartSlice})
   const persistedReducer = persistReducer(persistConfig, rootreducer)
 export const store = configureStore({
     reducer: persistedReducer,
