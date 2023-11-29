@@ -16,7 +16,7 @@ const Addtocart=({addToCartItem}) =>{
     
         <div className='add-to-cart-wrapper'>
            <div className='add-to-cart-item'>
-            <h6 className="text-center">Your Cart 🛒</h6>
+            <h6 className="text-center1">Your Cart 🛒</h6>
            {addToCartResult}
         
     </div>

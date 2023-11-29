@@ -43,7 +43,12 @@ const Profile = () => {
         
        </table><br/>
         
-       
+        <div className='profile-main'>
+        <Link to={'/orders'}>
+          <button className='but-1'>Orders</button>
+        </Link>
+        </div>
+        
         <button className='but-1' onClick={logoutX}>Logout</button>
         {/* <div className='but-2'>
         <Link className='but-2' to={'updated'}>Update</Link>

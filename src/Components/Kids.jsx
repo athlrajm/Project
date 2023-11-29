@@ -9,16 +9,17 @@ function Kids() {
   const dispatch=useDispatch();
   let [addToCartItem, setaddToCartItem]=useState([])
 
-  function addToCartHandler(addToCartTitle,addToCartImg,addToCartPrice){
+  function addToCartHandler(addToCartTitle,addToCartImg,addToCartPrice,addToCartId){
     setaddToCartItem([
       ...addToCartItem,
       {
         "image":addToCartImg,
         "title":addToCartTitle,
-        "price":addToCartPrice
+        "price":addToCartPrice,
+        "id":addToCartId
       }
     ]);
-    dispatch(addCart({addToCartTitle,addToCartImg,addToCartPrice}))
+    dispatch(addCart({addToCartTitle,addToCartImg,addToCartPrice,addToCartId}))
     
   }
   return (
@@ -36,8 +37,8 @@ function Kids() {
           {data.description}
         </Card.Text>
         <Card.Text>Rs.{data.price} ( 20%off )</Card.Text>
-        <Button onClick={()=>addToCartHandler(data.title,data.image,data.price)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Add to cart</Button>&nbsp;&nbsp;&nbsp;
-        <Button onClick={()=>addToCartHandler(data.title,data.image,data.price)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Buy Now</Button>
+        <Button onClick={()=>addToCartHandler(data.title,data.image,data.price,data.id)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Add to cart</Button>&nbsp;&nbsp;&nbsp;
+        <Button onClick={()=>addToCartHandler(data.title,data.image,data.price,data.id)} class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Buy Now</Button>
       </Card.Body>
     </Card>
             )

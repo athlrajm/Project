@@ -1,40 +1,50 @@
 import React, { useEffect, useState } from 'react'
-import Addtocart from './Addtocart'
 import { useDispatch, useSelector } from 'react-redux'
 import './Cart.css'
+import { removeCart } from '../Redux/CartSlice'
 const Cart = () => {
     const [cartitems,setCartitems]=useState([]);
-    
-    const dispath=useDispatch()
+    const[orderx,setOrderx]=useState([]);
+    const dispatch=useDispatch();
     const cartx=useSelector(state=>state.cart.cartItems);
-    
-    const handleRemoveFromCart=(cartItems)=>{
+    // const ordery=useSelector(state=>state.orders.orderx)
+    const handleRemoveFromCart=(cartitems)=>{
 
-     dispath(handleRemoveFromCart(cartItems))
-
-    }
+      dispatch(removeCart(cartitems));
+ 
+     }
+     function addToOrders(addToOrderTitle){
+      setOrderx([
+        ...orderx,{title:addToOrderTitle}
+      ]);
+     }
     
+     
     useEffect(()=>{
       setCartitems(cartx);
     },[])
-    console.log("cartx",cartx)
-    
+    // useEffect(()=>{
+    //   setOrderx(ordery)
+    // })
+    console.log("cartx",cartx);
+    // console.log("ordd",ordery);
   return (
     
     <div className='cart-1'>
        <h6 className="text-center">Your Cart 🛒</h6>
       
       {cartitems.map((la)=>
-      <div>
+      <div className='cart-x1'>
       <img className="cart-img" src={la.addToCartImg} alt="img" />
       <h1 className='cart-title'>{la.addToCartTitle}</h1>
       <h1 className='cart-title'>Rs. {la.addToCartPrice}</h1>
-      <button onClick={()=>handleRemoveFromCart(cartitems)}>remove</button>
+      
+      <button className='btx-2' onClick={()=>handleRemoveFromCart(cartitems)}>remove</button>
       </div>
       
       )}
       <div className='btx-1'>
-        <button className='btx-2' onClick={()=>alert("Your order has been placed successfully")}>Proceed To Pay</button>
+        <button className='btx-2' onClick={()=>addToOrders(cartx.title)}>Proceed To Pay</button>
       </div>
       
       

@@ -16,6 +16,7 @@ import Login from "./Components/Login.jsx";
 import Profile from "./Components/Profile.jsx";
 import { useSelector } from "react-redux";
 import {createBrowserRouter,RouterProvider}from 'react-router-dom'
+import Orders from "./Components/Orders.jsx";
 
 function App() {
   const userx=useSelector(state=>state.userdata.loginInfo);
@@ -56,6 +57,10 @@ function App() {
     {
       path:'signup',
       element:<><NavBar/><Signup/><Foot/></>
+    },
+    {
+      path:'/orders',
+      element:<><NavBar/><Orders/><Foot/></>
     }
   ])
   return (
